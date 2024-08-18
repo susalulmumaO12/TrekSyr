@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "71781387471",
+    "project_id": "treksyr",
+    "storage_bucket": "treksyr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71781387471:android:af9d8a9772b3c37f7ebbba",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5_hMJvhMR960_0hAS6IWExnFQxKQgOcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71781387471:android:564cbc52361aff8a7ebbba",
+        "android_client_info": {
+          "package_name": "com.example.my_tourism_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5_hMJvhMR960_0hAS6IWExnFQxKQgOcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71781387471:android:91f2cce06e74869d7ebbba",
+        "android_client_info": {
+          "package_name": "com.treksyr.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5_hMJvhMR960_0hAS6IWExnFQxKQgOcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

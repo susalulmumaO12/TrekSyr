@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reject Guide</title>
+</head>
+<body>
+
+  <form id="rejectForm">
+    <input type="number" id="user_id" name="user_id" required>
+    <button type="submit">Reject</button>
+  </form>
+  
+  <div id="errorDiv"></div>
+
+  <script>
+    const rejectForm = document.getElementById('rejectForm');
+    const errorDiv = document.getElementById('errorDiv'); // Get the errorDiv
+
+    console.log(`\n\nlogin form ${rejectForm}`); // Log for debugging
+    rejectForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const user_id = document.getElementById('user_id').value;
+      const formData = new URLSearchParams(); // Create a URLSearchParams object
+      formData.append('user_id', user_id); // Add the user_id to the form data
+        console.log('\n\n\nuser id is', user_id)
+      try {
+        const response = await fetch('http://192.168.74.198:3000/api/admin/rejectGuide/deep', { // Replace with your API URL
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, // Set the content type
+          body: formData // Send the form data
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          errorDiv.textContent = errorData.error || 'An error occurred. Please try again later.'; // Display the error message
+        } else {
+          // Handle successful response here (e.g., display a success message)
+          console.log('User rejected successfully!'); 
+        }
+
+      } catch (error) {
+        console.error('Fetch Error:', error);
+        errorDiv.textContent = 'An error occurred. Please try again later.'; // Display the error message
+      }
+    });
+  </script>
+
+</body>
+</html>

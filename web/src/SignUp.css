@@ -1,0 +1,448 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing:border-box;
+}
+body{
+  font-family: "inter",sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.container-signup{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(238, 247, 248, 1);
+  box-shadow: 0 4px 20px 0 rgb(0,0,0,0.3), 0 6px 20px 0 rgb(0,0,0,0.3);
+  overflow-y:auto ;
+
+}
+.container-signup .image {
+  background-image: url('./Assets/Palmyra\ in\ Syria\ .png');
+  background-size: cover;
+  position: relative;
+  flex-basis:48%;
+  height: 116%;
+}
+.container-signup .image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(71, 174, 181, 0.49);
+}
+.container-signup .image .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  padding: 50px;
+}
+.container-signup .image .content h1 {
+  color: rgba(255, 255, 255, 1);
+  text-align: left-center;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 96.82px;
+  padding: 10px;
+  margin: 10px;
+}
+.container-signup .image .content .butt {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+  left: 11%;
+  top: 10px;
+}
+.container-signup .image .content .butt2{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+  left: 56px;
+  top: 10px;
+}
+#loginbtn{
+  top: 40px;
+}
+.container-signup .image .content .butt > button,
+.container-signup .image .content .butt2 > button
+{
+  color: rgba(71, 174, 181, 1);
+  text-align:center;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18.5px;
+  border-color: rgba(238, 247, 248, 1);
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  padding: 20px 20px;
+  margin: 6px;
+  background: rgba(238, 247, 248, 1);
+  width: 98px;
+  height: 78px;
+}
+ #second{
+  border-color: rgba(238, 247, 248, 0.5);
+  background:  rgba(238, 247, 248, 0.5);
+  color: rgba(255, 255, 255, 1);
+
+}
+.container-signup .container-form {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.container-signup .container-form .imge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  width: 187.9px;
+  height: 156.9px;
+  top: 12px;
+  right:15%;
+}
+.container-signup .container-form  .lim{
+  top:45px;
+  right:42%;
+}
+.container-signup .container-form .imge > img {
+  margin-bottom: 15px;
+  width:82px ;
+}
+.container-signup .container-form .imge > .logo{
+  width:96px ;
+}
+.container-signup .input .field-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 350px;
+  right:24%;
+}
+.container-form{
+  position: relative;
+  width: 70vh;
+  height: 80vh;
+  }
+
+  .field-group {
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    width: 357px;
+    height: 606px;
+    display: flex;
+    align-items: center;
+  }
+
+  .login{
+    top:76px;
+  }
+  
+  form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  min-width: 238px;
+  padding: 0 10px;
+}
+.input-field{
+  width: 340px;
+  height: 71px;
+  background-color: rgba(71, 174, 181, 0.22);
+  margin: 5px 0;
+  border: 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.input-login{
+  width: 352px;
+}
+.input-field .icon{
+  flex:1;
+  text-align: center;
+  color: rgb(255,255,255,1);
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+}
+.input-field input{
+  flex:5;
+  background: none ;
+  border:none;
+  outline:none;
+  color:rgb(22, 100, 105);
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18.15px;
+}
+.input-field .icon-eye{
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  color:rgb(22, 100, 105);
+  margin-right: 10px;
+}
+input[type="file"]{
+  display: none;
+}
+label{
+  color:rgba(255, 255, 255, 1);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 18.15px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label .icon{
+  margin-left: 17px;
+}
+label span{
+  margin-left: 12px;
+}
+
+::placeholder{
+  color:rgba(255, 255, 255, 1);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 18.15px;
+}
+
+.input-field button
+{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+  border :none;
+  background: rgba(71, 174, 181, 1);
+  outline:none;
+  font-size: 18px;
+  font-weight: 600;
+  color:rgba(255, 255, 255, 1);
+  margin: 10px 0;
+  cursor: pointer;
+}
+.input-field button:hover{
+  background: rgb(22, 100, 105) ;
+}
+.img{
+ width: 500px;
+ height: 1024;
+ margin-right: 0px;
+
+}
+.preview-image{
+    width: 30px;
+    height: 38px;
+    margin-left: 52px;
+
+}
+/* SignupPage.css */
+
+.container-signup {
+  display: flex;
+  flex-wrap: wrap;
+  }
+  .field-group a{
+  color:#47AEB5;
+  text-decoration:none;
+  font-weight: 600;
+  line-height: 18.15px;
+  font-size: 15px;
+  margin-top: 12px;
+  }
+  /*forget-password*/
+  .forget-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 133px;
+  }
+  .forget-flex .field-group{
+    left: 37%;
+    top:13px;
+  }
+
+  .forget_password h1{
+    font-weight: 600;
+    font-size:30px ;
+    line-height: 36.31px;
+  }
+ #symbol{
+    margin: 40px 0 17px;
+  }
+  /*Send Code*/
+  .forget-flex p{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 36.31px;
+  }
+  .forget-flex .input-fields {
+    display: flex;
+    justify-content: center;
+    margin: 49px 0;
+  }
+  
+  .forget-flex .input-fields input {
+    width: 59px;
+    height: 81px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #C9E7E9;
+    background-color: #C9E7E9;
+    border-radius: 8px;
+  }
+  .input-fields input:focus-visible {
+    outline: none;
+    border-color: #C9E7E9;
+    box-shadow: 0 0 5px #C9E7E9;
+  }
+  .verify-button {
+    background-color: #47AEB5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .resend-codebutton{
+    background-color:transparent;
+    color:#47AEB5;
+    margin-top: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+
+  }
+ /*Profile*/
+ #profile{
+  margin: 109px;
+ }
+.circle {
+  background-color: #FFFFFF;
+  width: 137px;
+  height: 137px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.circle img {
+  border-radius: 50%;
+  width: 80px;
+  height: 92px;
+}
+.edit-icon{
+  background-color: #47AEB5;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 5px 5px 0px;
+  position: absolute;
+  top: 106px;
+  right: 0;
+}
+.edit-icon .pen{
+  width: 15px;
+  height: 19px;
+  color: #FFFFFF;
+}
+.profile-field{
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+#input-profile{
+  width: 340px;
+  height: 67px;
+  margin: 11px 0;
+}
+.input-field .pen{
+  width: 67px;
+  height: 19px;
+  color: #FFFFFF;
+}
+  /* ImageSection.css */
+  
+  .image {
+  background-size: cover;
+  }
+  
+  @media (max-width:570px){
+     .container-signup .image{
+     display: none;
+    }
+    form{
+      width:80%
+  }
+    .container-signup .container-form .imge{
+      top: 39px;
+      right: -9%;
+    }
+}
+@media (max-width:1024px){
+  .container-signup .image .content h1{
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 50.82px;
+  }
+}
+@media (max-width:894px){
+  .container-signup .image .content h1{
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 40.82px;
+  }
+}
+@media (min-height: 768px) {
+  .container-signup .container-form .lim {
+    top: 94px;
+  }
+  .login{
+        top: 145px;
+   }
+   .signup{
+    top:76px
+   }
+   
+  .container-signup .image{
+    height:100%
+  }
+  .container-signup .image::before{
+    height:100%
+
+  }
+
+}
+.error{
+
+  color: red;
+  font-size: 12px;
+}

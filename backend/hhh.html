@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="something@example.com" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="login_password" value="12345678" required>
+        </div>
+        <button type="submit">Login</button>
+        <div class="error" id="error"></div>
+      </form>
+  
+      <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+  
+      <div id="forgotPasswordForm" style="display: none;"> 
+        <h3>Reset Password</h3>
+        <form id="forgotPasswordForm">
+          <div>
+            <label for="forgotEmail">Email:</label>
+            <input type="email" id="forgotEmail" name="email" required>
+          </div>
+          <button type="submit">Reset Password</button>
+          <div class="error" id="forgotError"></div>
+        </form>
+      </div>
+    </div>
+  
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const errorDiv = document.getElementById('error');
+
+    console.log(`\n\nlogin form ${loginForm}`);
+    loginForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      console.log(`\n\nemail pass ${email} ${password}`);
+      // Send a fetch request to your login API endpoint
+      try {
+        const response = await fetch('http://192.168.46.198:3000/api/users/loginUser', { // Replace with your API URL
+          method: 'POST',
+          body: JSON.stringify({ email: email, login_password: password })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Handle successful login (e.g., redirect to another page, display a success message)
+          console.log("Login successful:", data);
+          errorDiv.textContent = ''; // Clear any previous error message
+          // ... your logic for handling successful login
+        } else {
+          const error = await response.json();
+          errorDiv.textContent = error.message || 'Login failed. Please check your credentials.'; // Display error message from API
+        }
+
+      } catch (error) {
+        errorDiv.textContent = 'An error occurred. Please try again later.';
+      }
+    });
+
+    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    forgotPasswordLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      loginForm.style.display = 'none';
+      forgotPasswordForm.style.display = 'block';
+    });
+
+    // Forgot Password Form Submission
+    const forgotErrorDiv = document.getElementById('forgotError');
+    forgotPasswordForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById('forgotEmail').value;
+      console.log(`\n\nemail: ${email}`);
+
+      try {
+        const response = await fetch('http://192.168.46.198:3000/api/users/sendPassword', { // Replace with your API URL
+          method: 'POST',
+          body: JSON.stringify({ email: email })
+        });
+
+        if (response.ok) {
+          // Handle successful password reset request (e.g., display a success message)
+          console.log("Password reset request sent.");
+          forgotErrorDiv.textContent = '';
+          // ... your logic for handling successful password reset request
+        } else {
+          const error = await response.json();
+          forgotErrorDiv.textContent = error.message || 'Error sending password reset request. Please try again.';
+        }
+
+      } catch (error) {
+        forgotErrorDiv.textContent = 'An error occurred. Please try again later.';
+      }
+    });
+  </script>
+</body>
+</html>

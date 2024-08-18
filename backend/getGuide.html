@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guide Cards</title>
+        <style>
+          body {
+            font-family: sans-serif;
+            margin: 0;
+          }
+          .container {
+            max-width: 960px;
+            margin: 20px auto;
+          }
+          .guide-card {
+            margin-bottom: 20px;
+          }
+          .guide-card .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+          .guide-image {
+            max-width: 100%;
+            height: auto;
+          }
+          .guide-card .card-body {
+            padding: 15px;
+          }
+          .guide-card .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+          }
+        </style>
+      </head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Guides</h1>
+    <div class="row" id="guide-cards">
+      <!-- Guide cards will be added here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to fetch guide data and display it in cards
+    async function fetchGuides() {
+  try {
+    const response = await fetch('http://192.168.53.198:3000/api/admin/getAllGuides/deep'); 
+    const guides = await response.json();
+    console.log(guides); // Add this to check the response
+
+    // Display each guide in a card
+    guides.forEach(guide => { 
+      // No need for guides[0]
+      const card = `
+        <div class="col-md-4 guide-card">
+          <div class="card">
+            <img src="data:image/jpeg;base64,${guide.image}" class="card-img-top guide-image" alt="${guide.first_name} ${guide.last_name}">
+            <div class="card-body">
+              <h5 class="card-title">${guide.first_name} ${guide.last_name}</h5>
+              <p class="card-text">Email: ${guide.email}</p>
+              <p class="card-text">Validated: ${guide.isValidated ? 'Yes' : 'No'}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('guide-cards').innerHTML += card;
+    });
+  } catch (error) {
+    console.error('Error fetching guides:', error);
+    // Handle errors appropriately (e.g., display an error message)
+  }
+}
+
+    // Call the function to fetch guides on page load
+    fetchGuides();
+  </script>
+</body>
+</html>
