@@ -3,12 +3,13 @@ A tourism system based in Syria ( just an assignment ), with 3 types of accounts
 
 ## Project Specifics
 
-### Contents
+**Contents:**
 
 1. [System Prerequisites](#system-prerequisites)
 2. [Required Services](#required-services)
 3. [Running the App](#running-the-app)
-
+   
+#
 
 ## System Prerequisites
 You need to have the followeing technologies installed on your system:
@@ -17,7 +18,8 @@ You need to have the followeing technologies installed on your system:
 2. Flutter
 3. ReactJs
 4. MySQL database server
-
+   
+#
 ## Required Services
 
 1. Firebase
@@ -25,6 +27,7 @@ You need to have the followeing technologies installed on your system:
 3. Stripe
 4. Gmail account with some presets
 
+#
 ## Running the App
 
 ### Backend Side
@@ -64,5 +67,5 @@ Then:
 
 Which will run the following command: `react-scripts start`
 
-### NOW YOU'RE ALL SET UP!
+#### NOW YOU'RE ALL SET UP!
 
